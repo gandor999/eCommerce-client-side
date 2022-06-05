@@ -1,0 +1,3 @@
+- started refactoring everything with format
+- changed old functions to arrow functions
+- next is to try and refactor the logic because it is so spagehtti
