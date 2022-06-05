@@ -27,25 +27,24 @@ export default function ProductDatum(prop) {
     setDetectChange(false);
   }, [detectChange]);
 
-  function updateIsActiveStatus() {
+  const updateIsActiveStatus = () => {
     setIsActive(!isActive);
     handleShow();
-  }
+  };
 
-  function notSure() {
+  const notSure = () => {
     setIsActive(!isActive);
     handleClose();
-  }
+  };
 
-  function cancel() {
+  const cancel = () => {
     setProductName(datum.name);
     setProductPrice(datum.price);
     setProductDescription(datum.description);
     handleClose2();
-  }
+  };
 
-  function sendUpdateStatus() {
-    console.log(isActive);
+  const sendUpdateStatus = () => {
     fetch(`${api}/products/${datum._id}/updateSatus`, {
       method: "POST",
       headers: {
@@ -77,9 +76,9 @@ export default function ProductDatum(prop) {
           handleClose();
         }
       });
-  }
+  };
 
-  function sendUpdateContent(e) {
+  const sendUpdateContent = (e) => {
     e.preventDefault();
 
     fetch(`${api}/products/${datum._id}`, {
@@ -123,7 +122,7 @@ export default function ProductDatum(prop) {
           handleClose2();
         }
       });
-  }
+  };
 
   return (
     <Col
