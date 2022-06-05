@@ -29,14 +29,11 @@ export default function Cart(prop) {
     };
   }
 
-  console.log(orderTicket);
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [products, setProducts] = useState([]);
   const [isActive, setIsActive] = useState(false);
 
   let totalPrice = 0;
@@ -62,7 +59,7 @@ export default function Cart(prop) {
     );
   }
 
-  function checkout() {
+  const checkout = () => {
     fetch(`${api}/users/checkout`, {
       method: "POST",
       headers: {
@@ -94,7 +91,7 @@ export default function Cart(prop) {
           handleClose();
         }, 1);
       });
-  }
+  };
 
   useEffect(() => {
     if (totalPrice !== 0) {
