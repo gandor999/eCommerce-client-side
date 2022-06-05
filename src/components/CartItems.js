@@ -28,12 +28,12 @@ export default function CartItems(prop) {
     localStorage.setItem("cart", JSON.stringify(cartArray));
   }, [quantity, cartArray]);
 
-  function add() {
+  const add = () => {
     setQuantity(quantity + 1);
     cartArray[index].quantity = quantity + 1;
-  }
+  };
 
-  function subtract() {
+  const subtract = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
       cartArray[index].quantity = quantity - 1;
@@ -50,9 +50,9 @@ export default function CartItems(prop) {
         prop.handleShow();
       }, 1);
     }
-  }
+  };
 
-  function remove() {
+  const remove = () => {
     cartArray.splice(index, 1);
     console.log(cartArray);
     localStorage.setItem("cart", JSON.stringify(cartArray));
@@ -66,7 +66,7 @@ export default function CartItems(prop) {
     setTimeout(() => {
       prop.handleShow();
     }, 1);
-  }
+  };
 
   return (
     <div className="d-flex">
