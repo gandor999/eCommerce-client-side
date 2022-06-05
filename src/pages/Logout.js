@@ -1,19 +1,15 @@
-import { useContext, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
-import UserContext from '../UserContext';
+import { useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import UserContext from "../UserContext";
 
+export default function Logout() {
+  const { unsetUser, setUser } = useContext(UserContext);
 
-export default function Logout(){
+  unsetUser();
 
-	const { unsetUser, setUser } = useContext(UserContext);
+  useEffect(() => {
+    setUser({ id: null });
+  });
 
-	unsetUser();
-	
-	useEffect(() => {
-		setUser({id: null})
-	});
-
-	return(
-		<Redirect to="/" />
-	)
+  return <Redirect to="/" />;
 }
